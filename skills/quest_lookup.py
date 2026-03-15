@@ -26,10 +26,17 @@ def get_player_quests(player_name):
         started = [q for q in quests if q['status'] == 'STARTED']
         not_started = [q for q in quests if q['status'] == 'NOT_STARTED']
         
+        total_qp = sum(q['questPoints'] for q in completed)
+        
         print(f"Quest Summary for {player_name}:")
         print(f"  Completed: {len(completed)}")
         print(f"  Started: {len(started)}")
         print(f"  Not Started: {len(not_started)}")
+        print(f"  Total Quest Points: {total_qp}")
+
+        # List completed quest titles
+        completed_titles = [q['title'] for q in completed]
+        print(f"\nCompleted Quests: {', '.join(completed_titles)}")
         
         # If a specific quest title is passed as a second argument, check its status
         if len(sys.argv) > 2:

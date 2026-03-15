@@ -2,7 +2,7 @@ import sys
 import json
 import os
 
-MEMORY_FILE = os.path.join(os.path.dirname(__file__), "memory.json")
+MEMORY_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "memory.json")
 
 def load_memory():
     if not os.path.exists(MEMORY_FILE):
